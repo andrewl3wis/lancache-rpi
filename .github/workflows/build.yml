@@ -9,12 +9,11 @@ on:
   workflow_dispatch:
 
 jobs:
-  env:
-    REGISTRY: ghcr.io
-    IMAGE_NAME: ${{ github.repository }}
-
   build:
-    runs-on: ubuntu-latest
+     env:
+        REGISTRY: ghcr.io
+        IMAGE_NAME: ${{ github.repository }}
+        runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
       - name: Repo metadata
