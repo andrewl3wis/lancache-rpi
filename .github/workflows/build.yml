@@ -10,7 +10,8 @@ on:
 
 jobs:
   build:
-     env:
+    runs-on: ubuntu-latest
+    env:
         REGISTRY: ghcr.io
         IMAGE_NAME: ${{ github.repository }}
         runs-on: ubuntu-latest
