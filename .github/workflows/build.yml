@@ -54,7 +54,7 @@ jobs:
         run: |
           git clone https://github.com/lancachenet/ubuntu-nginx.git
           cd ubuntu-nginx
-          sed -i '1cFROM ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}' Dockerfile
+          sed -i '1cFROM ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}/lancachenet-ubuntu' Dockerfile
           cat Dockerfile
           docker buildx build --platform linux/arm/v7,linux/arm64 -t ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}/lancachenet-ubuntu-nginx --push .
           cd ..
@@ -62,7 +62,7 @@ jobs:
         run: |
           git clone https://github.com/lancachenet/generic.git
           cd generic
-          sed -i '1cFROM ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}' Dockerfile
+          sed -i '1cFROM ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}/lancachenet-ubuntu-nginx' Dockerfile
           cat Dockerfile
           docker buildx build --platform linux/arm/v7,linux/arm64 -t ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}/lancachenet-generic --push .
           cd ..
